@@ -1,4 +1,4 @@
-import { MapPin, Phone, Mail, Clock } from 'lucide-react';
+import { MapPin, Phone, Mail, Clock } from "lucide-react";
 
 export default function Footer() {
   return (
@@ -17,7 +17,11 @@ export default function Footer() {
             <div className="space-y-3 text-sm">
               <div className="flex items-start gap-2">
                 <MapPin size={18} className="mt-0.5 flex-shrink-0" />
-                <span>123 Main Street<br />Anytown, USA</span>
+                <span>
+                  123 Main Street
+                  <br />
+                  Anytown, USA
+                </span>
               </div>
               <div className="flex items-center gap-2">
                 <Phone size={18} className="flex-shrink-0" />
@@ -45,7 +49,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-8 pt-8 border-t border-stone-800 text-center text-sm">
+        <div className="mt-8 pt-8 border-t border-white/30 text-center text-sm">
           <p>&copy; {new Date().getFullYear()} The Rustic Plate. All rights reserved.</p>
         </div>
       </div>
