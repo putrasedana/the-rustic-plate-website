@@ -5,25 +5,25 @@ const features = [
     title: "Locally Sourced",
     description: "Fresh ingredients from nearby farms and producers",
     icon: Leaf,
-    image: "https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=800",
+    image: "/images/image-11.jpg",
   },
   {
     title: "Daily Specials",
     description: "New seasonal dishes crafted by our chef each day",
     icon: Calendar,
-    image: "https://images.pexels.com/photos/262978/pexels-photo-262978.jpeg?auto=compress&cs=tinysrgb&w=800",
+    image: "/images/image-5.jpg",
   },
   {
     title: "Family Recipes",
     description: "Time-honored recipes passed down through generations",
     icon: BookOpen,
-    image: "https://images.pexels.com/photos/958545/pexels-photo-958545.jpeg?auto=compress&cs=tinysrgb&w=800",
+    image: "/images/image-7.jpg",
   },
   {
     title: "Cozy Atmosphere",
     description: "Warm, welcoming space that feels like home",
     icon: Home,
-    image: "https://images.pexels.com/photos/262978/pexels-photo-262978.jpeg?auto=compress&cs=tinysrgb&w=800",
+    image: "/images/image-10.jpg",
   },
 ];
 
@@ -34,7 +34,7 @@ export default function HomePage() {
         <div
           className="absolute inset-0 opacity-35"
           style={{
-            backgroundImage: `url('https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=1920')`,
+            backgroundImage: `url(/images/hero-img.avif)`,
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}
@@ -109,7 +109,7 @@ export default function HomePage() {
         <div
           className="absolute inset-0 opacity-35"
           style={{
-            backgroundImage: `url('https://images.pexels.com/photos/941861/pexels-photo-941861.jpeg?auto=compress&cs=tinysrgb&w=1920')`,
+            backgroundImage: `url(/images/reservation-img.avif)`,
             backgroundSize: "cover",
             backgroundPosition: "center",
             backgroundAttachment: "fixed",

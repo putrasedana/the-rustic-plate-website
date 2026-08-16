@@ -1,32 +1,62 @@
-import { MenuItem } from "../types";
+export interface MenuItem {
+  id: string;
+  name: string;
+  description: string;
+  price: string;
+  category: "starters" | "mains" | "sides" | "desserts" | "drinks";
+  image?: string;
+  isVegetarian?: boolean;
+  isGlutenFree?: boolean;
+  isSpicy?: boolean;
+}
 
-const images = import.meta.glob("../assets/images/*.{png,jpg,jpeg,webp}", {
-  eager: true,
-}) as Record<string, { default: string }>;
-
-const imageList = Object.values(images).map((img) => img.default);
+export const categories = [
+  {
+    id: "starters",
+    label: "Starters",
+    description: "Begin your meal with our handcrafted appetizers",
+  },
+  {
+    id: "mains",
+    label: "Main Courses",
+    description: "Hearty, satisfying dishes made with love",
+  },
+  {
+    id: "sides",
+    label: "Sides",
+    description: "Perfect complements to your main course",
+  },
+  {
+    id: "desserts",
+    label: "Desserts",
+    description: "Sweet endings to your meal",
+  },
+  {
+    id: "drinks",
+    label: "Drinks",
+    description: "Carefully curated beverage selection",
+  },
+];
 
 export const menuItems: MenuItem[] = [
   {
     id: "1",
     name: "Heirloom Tomato Bruschetta",
-    description:
-      "Grilled sourdough topped with marinated heirloom tomatoes, fresh basil, and aged balsamic",
+    description: "Grilled sourdough topped with marinated heirloom tomatoes, fresh basil, and aged balsamic",
     price: "12",
     category: "starters",
     isVegetarian: true,
-    image: imageList[0],
+    image: "/images/image-22.jpg",
   },
   {
     id: "2",
     name: "Wild Mushroom Soup",
-    description:
-      "Creamy blend of seasonal wild mushrooms with truffle oil and fresh herbs",
+    description: "Creamy blend of seasonal wild mushrooms with truffle oil and fresh herbs",
     price: "10",
     category: "starters",
     isVegetarian: true,
     isGlutenFree: true,
-    image: imageList[1],
+    image: "/images/image-1.jpg",
   },
   {
     id: "3",
@@ -35,17 +65,16 @@ export const menuItems: MenuItem[] = [
     price: "14",
     category: "starters",
     isSpicy: true,
-    image: imageList[2],
+    image: "/images/image-2.jpg",
   },
   {
     id: "4",
     name: "Artisan Cheese Board",
-    description:
-      "Selection of local cheeses, house-made jam, honey, and crackers",
+    description: "Selection of local cheeses, house-made jam, honey, and crackers",
     price: "16",
     category: "starters",
     isVegetarian: true,
-    image: imageList[3],
+    image: "/images/image-3.jpg",
   },
 
   {
@@ -56,58 +85,53 @@ export const menuItems: MenuItem[] = [
     price: "24",
     category: "mains",
     isGlutenFree: true,
-    image: imageList[4],
+    image: "/images/image-4.jpg",
   },
   {
     id: "6",
     name: "Pan-Seared Salmon",
-    description:
-      "Wild-caught salmon with lemon butter sauce, asparagus, and herb quinoa",
+    description: "Wild-caught salmon with lemon butter sauce, asparagus, and herb quinoa",
     price: "28",
     category: "mains",
     isGlutenFree: true,
-    image: imageList[5],
+    image: "/images/image-5.jpg",
   },
   {
     id: "7",
     name: "Braised Short Rib",
-    description:
-      "Slow-braised beef short rib with red wine reduction, root vegetables, and creamy polenta",
+    description: "Slow-braised beef short rib with red wine reduction, root vegetables, and creamy polenta",
     price: "32",
     category: "mains",
     isGlutenFree: true,
-    image: imageList[6],
+    image: "/images/image-6.jpg",
   },
   {
     id: "8",
     name: "Butternut Squash Risotto",
-    description:
-      "Creamy arborio rice with roasted butternut squash, sage, and parmesan",
+    description: "Creamy arborio rice with roasted butternut squash, sage, and parmesan",
     price: "22",
     category: "mains",
     isVegetarian: true,
     isGlutenFree: true,
-    image: imageList[7],
+    image: "/images/image-7.jpg",
   },
   {
     id: "9",
     name: "Grilled Pork Chop",
-    description:
-      "Heritage pork chop with apple chutney, Brussels sprouts, and sweet potato mash",
+    description: "Heritage pork chop with apple chutney, Brussels sprouts, and sweet potato mash",
     price: "26",
     category: "mains",
     isGlutenFree: true,
-    image: imageList[8],
+    image: "/images/image-8.jpg",
   },
   {
     id: "10",
     name: "Wild Mushroom Pasta",
-    description:
-      "House-made fettuccine with wild mushrooms, garlic, white wine, and fresh parsley",
+    description: "House-made fettuccine with wild mushrooms, garlic, white wine, and fresh parsley",
     price: "20",
     category: "mains",
     isVegetarian: true,
-    image: imageList[9],
+    image: "/images/image-9.jpg",
   },
 
   {
@@ -118,7 +142,7 @@ export const menuItems: MenuItem[] = [
     category: "sides",
     isVegetarian: true,
     isGlutenFree: true,
-    image: imageList[10],
+    image: "/images/image-10.jpg",
   },
   {
     id: "12",
@@ -128,7 +152,7 @@ export const menuItems: MenuItem[] = [
     category: "sides",
     isVegetarian: true,
     isGlutenFree: true,
-    image: imageList[11],
+    image: "/images/image-11.jpg",
   },
   {
     id: "13",
@@ -137,49 +161,45 @@ export const menuItems: MenuItem[] = [
     price: "9",
     category: "sides",
     isGlutenFree: true,
-    image: imageList[12],
+    image: "/images/image-12.jpg",
   },
   {
     id: "14",
     name: "House Salad",
-    description:
-      "Mixed greens with cherry tomatoes, cucumber, and house vinaigrette",
+    description: "Mixed greens with cherry tomatoes, cucumber, and house vinaigrette",
     price: "6",
     category: "sides",
     isVegetarian: true,
     isGlutenFree: true,
-    image: imageList[13],
+    image: "/images/image-13.jpg",
   },
 
   {
     id: "15",
     name: "Warm Apple Crisp",
-    description:
-      "Spiced apple crisp with vanilla ice cream and caramel drizzle",
+    description: "Spiced apple crisp with vanilla ice cream and caramel drizzle",
     price: "9",
     category: "desserts",
     isVegetarian: true,
-    image: imageList[14],
+    image: "/images/image-23.jpg",
   },
   {
     id: "16",
     name: "Chocolate Lava Cake",
-    description:
-      "Rich chocolate cake with molten center, served with fresh berries",
+    description: "Rich chocolate cake with molten center, served with fresh berries",
     price: "10",
     category: "desserts",
     isVegetarian: true,
-    image: imageList[15],
+    image: "/images/image-15.jpg",
   },
   {
     id: "17",
     name: "Seasonal Fruit Tart",
-    description:
-      "Buttery tart shell filled with pastry cream and fresh seasonal fruits",
+    description: "Buttery tart shell filled with pastry cream and fresh seasonal fruits",
     price: "8",
     category: "desserts",
     isVegetarian: true,
-    image: imageList[16],
+    image: "/images/image-16.jpg",
   },
   {
     id: "18",
@@ -189,7 +209,7 @@ export const menuItems: MenuItem[] = [
     category: "desserts",
     isVegetarian: true,
     isGlutenFree: true,
-    image: imageList[17],
+    image: "/images/image-17.jpg",
   },
 
   {
@@ -198,7 +218,7 @@ export const menuItems: MenuItem[] = [
     description: "Rotating selection of local craft beers",
     price: "7",
     category: "drinks",
-    image: imageList[18],
+    image: "/images/image-18.jpg",
   },
   {
     id: "20",
@@ -208,7 +228,7 @@ export const menuItems: MenuItem[] = [
     category: "drinks",
     isVegetarian: true,
     isGlutenFree: true,
-    image: imageList[19],
+    image: "/images/image-19.jpg",
   },
   {
     id: "21",
@@ -216,7 +236,7 @@ export const menuItems: MenuItem[] = [
     description: "Ask your server about our rotating seasonal cocktails",
     price: "12",
     category: "drinks",
-    image: imageList[20],
+    image: "/images/image-20.jpg",
   },
   {
     id: "22",
@@ -226,6 +246,6 @@ export const menuItems: MenuItem[] = [
     category: "drinks",
     isVegetarian: true,
     isGlutenFree: true,
-    image: imageList[21],
+    image: "/images/image-21.jpg",
   },
 ];

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useLocation, useNavigate, Routes, Route } from "react-router-dom";
 import Navigation from "./components/Navigation";
 import Footer from "./components/Footer";
 import HomePage from "./pages/HomePage";
@@ -8,34 +8,36 @@ import GalleryPage from "./pages/GalleryPage";
 import ContactPage from "./pages/ContactPage";
 
 function App() {
-  const [currentPage, setCurrentPage] = useState("home");
+  const location = useLocation();
+  const navigate = useNavigate();
 
-  const handleNavigate = (page: string) => {
-    setCurrentPage(page);
-    window.scrollTo({ top: 0, behavior: "smooth" });
+  // Extract current page from pathname
+  const getCurrentPage = () => {
+    const path = location.pathname.slice(1); // Remove leading slash
+    return path || "home";
   };
 
-  const renderPage = () => {
-    switch (currentPage) {
-      case "home":
-        return <HomePage />;
-      case "menu":
-        return <MenuPage />;
-      case "about":
-        return <AboutPage />;
-      case "gallery":
-        return <GalleryPage />;
-      case "contact":
-        return <ContactPage />;
-      default:
-        return <HomePage />;
+  const handleNavigate = (page: string) => {
+    if (page === "home") {
+      navigate("/");
+    } else {
+      navigate(`/${page}`);
     }
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   return (
     <div className="min-h-screen flex flex-col">
-      <Navigation currentPage={currentPage} onNavigate={handleNavigate} />
-      <main className="flex-grow">{renderPage()}</main>
+      <Navigation currentPage={getCurrentPage()} onNavigate={handleNavigate} />
+      <main className="flex-grow">
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/menu" element={<MenuPage />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/gallery" element={<GalleryPage />} />
+          <Route path="/contact" element={<ContactPage />} />
+        </Routes>
+      </main>
       <Footer />
     </div>
   );
